@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link rel='stylesheet' href='/stylesheets/style.css' />
+   <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+   <script src="angularjs/NgEmp.js"></script>
+  	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div ng-app="addEmpEdu" ng-controller="saveEmpEdu" ng-init="user_id=<%- data[0].user_id%>">
+  <!- HEADER DIV STARTS -->
+  <div  class="ban" id="ban">
+  <div class="row">
+    <div class="col-md-1" >
+    </div>  
+  <div class="col-md-3" >
+  <h1 style="color:white;">Facebook</h1>
+  </div>
+        <div class="col-md-2" style="color:white;">
+    </br>
+    <input type="text"  class="form-control" name="search" placeholder="Search Facebook"/> <br>
+    </div>
+    <div class="col-md-2" ></div>
+    <div class="col-md-2">
+    <br>
+    <a href="/signOut" class="btn btn-primary" ><b>SignOut</b></a></div>
+  </div>
+</div>
+ <!- HEADER DIV ENDS -->	
+<div class="row" >
+</br>
+</br>
+</div>
+<div class="row">
+<div class="col-md-1">
+</div>
+<div class="container" >
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#userOverview">User Overview</a></li>
+    <li><a data-toggle="tab" href="#workAndEdu">Work and Education</a></li>
+    <li><a data-toggle="tab" href="#lifeEvents">Life Event</a></li>
+  </ul>
+  <div class="tab-content">
+  
+  
+  <!-- Page user overview starts here -->
+   </br>
+   </br>
+    <div id="userOverview" class="tab-pane  in active" >
+        <div class="row">
+     <div class="col-md-4" >
+     </div>
+     <div class="col-md-1" >
+     <span class="label label-primary" >Name</span>
+    </div>
+    <div class="col-md-4" >
+     <%- data[0].first_name+"  "+data[0].last_name %>
+     </div>
+      <div class="col-md-3" >
+     </div>
+     </div>
+     </br>
+    	<div class="row">
+     <div class="col-md-4" >
+     </div>
+     <div class="col-md-1" >
+     <span class="label label-primary">Email Id</span>
+    </div>
+    <div class="col-md-4" >
+     <%- data[0].email %>
+     </div>
+          <div class="col-md-3" >
+     </div>
+     </div>
+     </br>
+       	<div class="row">
+     <div class="col-md-4" >
+     </div>
+     <div class="col-md-1" >
+     <span class="label label-primary">Mobile Number</span>
+    </div>
+    <div class="col-md-4" >
+     <%- data[0].phone_no %>
+     </div>
+          <div class="col-md-3" >
+     </div>
+     </div>
+     </br>
+    	<div class="row">
+     <div class="col-md-4" >
+     </div>
+     <div class="col-md-1" >
+     <span class="label label-primary">Date of Birth</span>
+    </div>
+    <div class="col-md-4" >
+     <%- data[0].dob %>
+     </div>
+     <div class="col-md-3" >
+     </div>
+     </div>
+	</div>
+     </br>
+   <!-- Page user overview Ends here -->
+    
+
+    
+     <!-- Page workAndEdu starts here -->
+     <div id="workAndEdu" class="tab-pane fade">
+     
+ <div class="row">
+  <div class="col-md-6" >
+    <div class="container">
+  <form class="form-horizontal" role="form" id="EmployementForm">
+    <div class="form-group">
+      <div class="col-sm-4">
+      <select class="form-control" id="empOrEdu" ng-model="empOrEdu">
+        <option ng-selected="true" >Select One</option>
+        <option value="Employement">Employement</option>
+        <option value="School">School</option>
+      </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-4">          
+       <input type="text" class="form-control" id="name" ng-model="name" placeholder="Company or School">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-2">          
+        <input type="text" class="form-control" id="from" ng-model="from" placeholder="From YYYY format.">
+      </div>
+      <div class="col-sm-2">          
+         <input type="text" class="form-control" id="to" ng-model="to"  placeholder="To YYYY format.">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-2 col-sm-10">
+        <button type="button" ng-click="addNewEmp()" class="btn btn-success">Add Employement or Work</button>
+      </div>
+    </div>
+  </form>
+</div>
+    
+    </div>
+    <div class="col-md-6">
+   
+   <div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h4 class="list-group-item-heading">{{list[0].type}}</h4>
+	<p class="list-group-item-text">Studied at {{list[0].name}} from {{list[0].from_start}} till {{list[0].to_end}}</p>
+  </a>
+  <div ng-repeat="x in list.slice(1,entries.length)">
+  <a href="#" class="list-group-item">
+    <h4 class="list-group-item-heading">{{x.type}}</h4>
+	<p class="list-group-item-text">Studied at {{x.name}} from {{x.from_start}} till {{x.to_end}}</p>
+  </a>
+  </div>
+</div>
+ </div>
+ </div>
+
+ </div> 
+   
+     <!-- Page user workAndEdu Ends here --> 
+     
+    
+    
+    
+    
+    
+    
+    
+      <!-- Page lifeEvents starts here -->
+    <div id="lifeEvents" class="tab-pane fade">
+
+ <div class="row">
+  <div class="col-md-6" >
+    <div class="container">
+  <form class="form-horizontal" role="form" id="EmployementForm">
+    <div class="form-group">
+      <div class="col-sm-4">
+      <select class="form-control" id="event" ng-model="event">
+        <option ng-selected="true" >Select One</option>
+        <option value="engage">Got Engaged</option>
+        <option value="born">Born</option>
+      </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-4">          
+       <input type="text" class="form-control" id="yearOfEvent" ng-model="yearOfEvent" placeholder="Enter Year">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-2 col-sm-10">
+        <button type="button" ng-click="addNewEvent()" class="btn btn-success">Add Event</button>
+      </div>
+    </div>
+  </form>
+</div>
+    
+    </div>
+    <div class="col-md-6">
+   
+   <div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h4 class="list-group-item-heading">{{list1[0].event_name}}</h4>
+	<p class="list-group-item-text">{{list1[0].event_name}} on {{list1[0].event_year}}</p>
+  </a>
+  <div ng-repeat="x in list1.slice(1,entries.length)">
+  <a href="#" class="list-group-item">
+    <h4 class="list-group-item-heading">{{x.event_name}}</h4>
+	<p class="list-group-item-text">{{x.event_name}} on {{x.event_year}}</p>
+  </a>
+  </div>
+</div>
+ </div>
+ </div>
+ 
+    
+    </div>
+     <!-- Page user lifeEvents Ends here -->
+ 
+  
+  
+  
+  
+  </div>
+</div>
+</div>
+</body>
+ </div>
+<script>
+
+</script>
+</html>

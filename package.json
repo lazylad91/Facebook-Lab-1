@@ -1,0 +1,14 @@
+{
+  "name": "fb",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.6",
+    "ejs": "*",
+    "mysql" : "~2.5.5",
+    "client-sessions": "0.7.0"
+  }
+}

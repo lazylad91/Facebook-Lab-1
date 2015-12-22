@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Log in </title>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+     <script src="js/bootstrap.min.js"></script>
+       <script src="angularjs/NgLogin.js"></script>
+     <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  </head>
+  <body>
+  
+  <!- LOGIN DIV STARTS -->
+  <div  class="ban" id="ban">
+  <div class="row">
+    <div class="col-md-1" >
+    </div>  
+  <div class="col-md-6" >
+  <h1 style="color:white;">Facebook</h1>
+  </div>
+  <form method="post" action="checkPassword">
+      <div class="col-md-2" style="color:white;">
+    <h5>Email or Phone:<br> </h5><input type="text"  class="form-control" name="emailPhone" ng-model="user" placeholder="Enter email" required/> <br>
+    <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+    </div>
+      <div class="col-md-2" style="color:white;" >
+    <h5>Password:<br></h5> <input type="password" class="form-control" name="password" ng-model="password" placeholder="Enter password" required/> <br>
+    <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+    <input type="submit" class="btn btn-primary" value="Login" />
+    </div>
+    </form>
+  </div>
+</div>
+ <!- LOGIN DIV ENDS -->
+ 
+ <!-- Signup Heading starts -->
+<div style="background-color:#eeeff4;">
+ <div class="row">
+  <div class="col-md-8" >
+    </div>
+    <div class="col-md-4" >
+  <h2>Sign up</h2>
+    </div>
+ </div>
+  <div class="row">
+  <div class="col-md-8" >
+    </div>
+    <div class="col-md-4" >
+  <h3>It's free and always will be.</h3>
+    </div>
+ </div>
+ <!-- Signup Heading ends-->
+ 
+ 
+ 
+ <!- SIGN UP DIV STARTS >
+   <div ng-app="signUp" ng-controller="saveData" name="fbForm" >
+ <div class="row">
+ <div class="col-md-3" >
+    </div>
+    <div class="col-md-3" >
+ <img src="../images/mobile.png" class="img-responsive" alt="Cinque Terre" width="97" height="205"> 
+    </div>
+    <div class="col-md-6" >
+    <div class="container">
+  <form class="form-horizontal" role="form" id="signUpForm">
+    <div class="form-group">
+     <div class="col-sm-2">
+      </div> 
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="firstName" ng-model="firstName" placeholder="First Name" required>
+        <span style="color:red" ng-show="fbForm.firstName.$dirty && fbForm.firstName.$invalid">
+      </div>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="lastName" ng-model="lastName" placeholder="Last Name" required>
+        <span style="color:red" ng-show="myForm.lastName.$dirty && myForm.lastName.$invalid">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-4">          
+        <input type="text" class="form-control" id="phoneNo" ng-model="phoneNo" placeholder="Enter Phone no." required>
+        <span style="color:red" ng-show="myForm.phoneNo.$dirty && myForm.phoneNo.$invalid">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-4">          
+        <input type="text" class="form-control" id="email" ng-model="email"  placeholder="Enter Email." required>
+        <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-4">          
+        <input type="password" class="form-control" ng-model="password" id="password" placeholder="Enter Password." required>
+        <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+      </div>
+    </div>
+     <div class="form-group">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-4">          
+        <input type="text" class="form-control" id="dob" ng-model="dob" placeholder="Date of birth(MM-DD-YYYY).">
+        <span style="color:red" ng-show="myForm.dob.$dirty && myForm.dob.$invalid">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="button" ng-click="saveData()" class="btn btn-success">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+    
+    </div>
+ </div>
+ </div>
+ </div>
+ <!- SIGN UP DIV ENDS>
+
+  </body>
+</html>
